@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Diksha </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title  size="large">Diksha</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="tab" style="background-color: #D0D3D4 ; height: 25%">
+    <ion-searchbar style="padding: 8% 5% 0% 6%"> </ion-searchbar>
+    <ion-button
+      color="danger"
+      style="width: 100%; padding: 1% 6% 0% 6%"
+      (click)="search()"
+    >
+      Search
+    </ion-button>
+    <!-- <ion-button (click)="subjectChange()" >Change</ion-button> -->
+  </div>
+
+  <!-- <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div> -->
+
+  <div *ngIf="load">
+    <ion-item *ngFor="let text of detail" lines="none" style="padding-top: 5%">
+      <ion-card style="width: 100%">
+        <ion-card-header color="primary">
+          <img class="newsImage" [src]="text.posterImage" >
+          <ion-item color="primary" lines="none">
+           
+            <ion-icon name="pin" slot="start"></ion-icon>
+            
+            <ion-label>
+              <h2>{{ text.board }}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-card-header>
+
+        <ion-card-content style="padding-top: 4%">
+          Subject : {{ text.subject }}
+          <p>
+          Medium : {{ text.medium }}</p>
+          <br />
+          {{ text.name }}
+          <p>
+            Download here: {{text.downloadUrl}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+  <ion-item>
+    <ion-input
+      [(ngModel)]="topic"
+      placeholder="Add topic.."
+      style="padding: 18% 6% 0% 6%"
+    ></ion-input>
+  </ion-item>
+  <ion-button
+    expand="block"
+    color="danger"
+    style="width: 100%; padding: 0% 6% 0% 6%"
+    (click)="search()"
+    >Search
+  </ion-button>
+  <ion-card mode="ios" *ngFor="let res ">
+    <ion-card-header>
+      <!-- <img class="newsImage" [src]="item.urlToImage"> -->
+      <!-- <h4>{{res.result.content[0].author}}</h4>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{res.result.content[0].author}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content> --> -->
